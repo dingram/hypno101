@@ -1,0 +1,143 @@
+\documentclass[style=groupspaces]{powerdot}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{pst-node}
+\usepackage{tabularx}
+\usepackage{calc}
+\usepackage{multido}
+\usepackage{units}
+
+%\def\jiID{6137}
+\colorlet{verbs}{yellow!70!white}
+\colorlet{headers}{cyan!70!white}
+\colorlet{auth}{orange!95!white}
+\colorlet{formats}{blue!50!red!50!white}
+\colorlet{validity}{green!80!white}
+\colorlet{docs}{red}
+\colorlet{link}{blue!50!black}
+
+\pddefinetemplate[slide]{blackslide}{
+  titlepos={.05\slidewidth,.93\slideheight},
+  titlewidth=.9\slidewidth,
+  titlefont=\bfseries\Large\color{pdcolor3}\raggedright,
+  textpos={.05\slidewidth,.90\slideheight},
+  textwidth=.9\slidewidth,
+  textheight=.85\slideheight,
+  textfont=\Huge\color{white}\centering,
+}{%
+  \psframe[linestyle=none,linewidth=0pt,fillstyle=solid,fillcolor=black](0,0)(\slidewidth,\slideheight)%
+}
+
+\pddefinetemplate[blackslide]{codeslide}{
+}{%
+}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\title{Hypnosis 101}
+\author{\textbf{Dave Ingram}\vspace*{6pt}\\\scriptsize @dmi}
+%\date{4th November 2010}
+
+\hypersetup{
+	pdfauthor={Dave Ingram},
+	pdftitle={Hypnosis 101},
+	pdfsubject={Hypnosis 101},
+pdfkeywords={Hypnosis},
+	pdfview={FitH},
+	pdfpagelayout={SinglePage}
+}
+
+\DeclareTextCommand{\_}{OT1}{%
+  \leavevmode \kern.06em\vbox{\hrule width.5em}}
+
+\newcommand\hl[2]{{\onslide*{#1}{\color{red}}#2}}
+
+\newcommand\bigslide[1]{%
+\begin{blackslide}{}
+  \par\vspace*{\stretch{1}}%
+  #1
+  \vspace*{\stretch{1}}%
+  \par
+\end{blackslide}
+}
+
+\begin{document}
+
+	\maketitle
+
+  \begin{slide}{Who am I?}%
+    \vspace*{\stretch{1}}
+
+    \begin{itemize}
+      \item Coder and Release Manager at \href{http://groupspaces.com/}{\color{link}\textbf{GroupSpaces}}
+      \item Worked there for over 4\nicefrac{1}{2} years
+    \end{itemize}
+
+    \vspace*{\stretch{1}}
+
+    \begin{itemize}
+      \item \textbf{Twitter:} \href{https://twitter.com/dmi}{\color{link}\texttt{@dmi}}
+      \item \textbf{Github:} \href{https://github.com/dingram}{\color{link}\texttt{dingram}}
+      \item Way too many \href{http://www.dmi.me.uk/projects/}{\color{link}projects of my own}
+      \item Also involved in \href{http://www.dmi.me.uk/contributions/}{\color{link}open source}, including \href{http://phabricator.com/}{\color{link}\textbf{Phabricator}}
+      \item Occasionally found at \href{http://london.hackspace.org.uk/}{\color{link}\textbf{London Hackspace}}
+      \ifdefined\jiId%
+      \item \textbf{Feedback:} \url{http://joind.in/\jiID}
+      \fi
+    \end{itemize}
+
+    \vspace*{\stretch{10}}
+  \end{slide}
+
+  \bigslide{Feedback/thoughts on Twitter:\\\texttt{\#apirocketsurgery}\\(or \texttt{@dmi})}
+
+  \bigslide{What this isn't}
+
+  \bigslide{\textbf{Part 1:} URLs}
+
+  \bigslide{Make them\\\psscalebox{1.07 1}{\textcolor{red}{versioned}}\onslide{2-}{,\\\textcolor{red}{hackable}}\onslide{3-}{ \&\\\psscalebox{1.015 1}{\ \textcolor{red}{meaningful}}}}
+
+  \bigslide{%
+    \ttfamily\bfseries\Large%
+    http://api.com/\hl{1}{v1}/\onslide{2-}{\hl{2}{users}/}\onslide{3-}{\hl{3}{31337}}\onslide{4-}{/\hl{4}{posts}/}%
+  }
+
+  \bigslide{Look at URLs from a\\consumer perspective}
+
+  \bigslide{They don't care about internal implementation details}
+
+  \bigslide{Use common sense}
+
+  \begin{blackslide}{}
+    \huge\vspace*{\stretch{1}}
+
+    \begin{itemize}
+      \item \texttt{\color{verbs}GET} = get()
+      \item \texttt{\color{verbs}PUT} = setAll() / new Obj(\$id)
+      \item \texttt{\color{verbs}POST} = new Obj() / doStuff() / set()
+      \item \texttt{\color{verbs}DELETE} = delete()
+      \item \texttt{\color{verbs}HEAD} $\approx$ getMetadata()
+      \item \texttt{\color{verbs}OPTIONS} $\approx$ Reflection
+    \end{itemize}
+
+    \vspace*{\stretch{1}}
+  \end{blackslide}
+
+  \begin{blackslide}{}
+    \LARGE
+    \vspace*{\stretch{1}}
+    \texttt{\color{headers}Accept} \\ The MIME types the client will accept.\\No
+    need to use file extensions to decide\\what content type to serve!
+
+    \vspace*{\stretch{1}}
+
+    \texttt{\color{headers}Accept-Language} \\ The languages the client will
+    accept.\\No need to ask clients or (worse) just\\assume English responses.
+    \vspace*{\stretch{1}}
+  \end{blackslide}
+
+  \bigslide{Try building something using \textcolor{docs}{only} your own API docs}
+
+\end{document}
+
+% vim: et ts=2 sw=2
