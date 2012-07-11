@@ -1,0 +1,104 @@
+\documentclass[style=groupspaces]{powerdot}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{pst-node}
+\usepackage{tabularx}
+\usepackage{calc}
+\usepackage{multido}
+\usepackage{units}
+\usepackage{amssymb}
+
+%\def\jiID{6137}
+\colorlet{verbs}{yellow!70!white}
+\colorlet{headers}{cyan!70!white}
+\colorlet{auth}{orange!95!white}
+\colorlet{formats}{blue!50!red!50!white}
+\colorlet{validity}{green!80!white}
+\colorlet{docs}{red}
+\colorlet{link}{blue!50!black}
+
+\pddefinetemplate[slide]{blackslide}{
+  titlepos={.05\slidewidth,.93\slideheight},
+  titlewidth=.9\slidewidth,
+  titlefont=\bfseries\Large\color{pdcolor3}\raggedright,
+  textpos={.05\slidewidth,.90\slideheight},
+  textwidth=.9\slidewidth,
+  textheight=.85\slideheight,
+  textfont=\Huge\color{white}\centering,
+}{%
+  \psframe[linestyle=none,linewidth=0pt,fillstyle=solid,fillcolor=black](0,0)(\slidewidth,\slideheight)%
+}
+
+\pddefinetemplate[blackslide]{codeslide}{
+}{%
+}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\newcommand\hypS{\textcolor{blue!40!black}{\textbf{S}}}
+\newcommand\hypH{\textcolor{green!60!black}{\textbf{H}}}
+
+\title{Hypnosis 101}
+\author{\textbf{Dave Ingram}\vspace*{6pt}\\\scriptsize @dmi}
+%\date{4th November 2010}
+
+\hypersetup{
+	pdfauthor={Dave Ingram},
+	pdftitle={Hypnosis 101},
+	pdfsubject={Hypnosis 101},
+pdfkeywords={Hypnosis},
+	pdfview={FitH},
+	pdfpagelayout={SinglePage}
+}
+
+\DeclareTextCommand{\_}{OT1}{%
+  \leavevmode \kern.06em\vbox{\hrule width.5em}}
+
+\newcommand\hl[2]{{\onslide*{#1}{\bfseries\color{red}}#2}}
+
+\newcommand\bigslide[1]{%
+\begin{blackslide}{}
+  \par\vspace*{\stretch{1}}%
+  #1
+  \vspace*{\stretch{1}}%
+  \par
+\end{blackslide}
+}
+
+\begin{document}
+
+	\maketitle
+
+  \begin{slide}{Hypnosis process}%
+    \vspace*{\stretch{1}}
+    \begin{center}
+      \begin{minipage}{.35\linewidth}
+        \Large
+        \begin{enumerate}
+          \item Pre-talk
+          \item Testing
+          \item \hl{2}{Induction}
+          \item \hl{2}{Deepening}
+          \item \hl{2}{Suggestion}
+          \item \hl{2}{Awakening}
+          \item \hl{2}{Posthypnotic}
+          \item Debrief
+        \end{enumerate}
+      \end{minipage}
+    \end{center}
+    \vspace*{\stretch{1}}
+  \end{slide}
+
+  \begin{slide}{Clock face induction}%
+    \begin{enumerate}
+      \item \hypS\ holds imaginary clock at arms' length, just above their eyes
+      \item \hypS\ imagines the clock pointing at 1 and \hypH\ says ``One, relaxing, going deeper''
+      \item \hypS\ imagines the clock pointing at 2 and \hypH\ says ``Two, two, relaxing, relaxing, going deeper, going deeper''
+      \item \ldots and continue, repeating each part the appropriate number of times
+      \item \hypH\ can make suggestions of relaxation and eye closure between numbers
+    \end{enumerate}
+  \end{slide}
+
+\end{document}
+
+% vim: et ts=2 sw=2
