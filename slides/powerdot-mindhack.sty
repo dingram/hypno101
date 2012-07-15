@@ -1,0 +1,726 @@
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\ProvidesPackage{powerdot-groupspaces}[2010/11/08 v1.0 GroupSpaces presentation style]
+\RequirePackage{times}
+\RequirePackage{pifont}
+
+\definecolor{pdcolor1}{rgb}{.15,.15,.15}
+\definecolor{pdcolor2}{rgb}{.98,.98,.98}
+%\definecolor{pdcolor3}{rgb}{.25,.25,.55}
+\definecolor{pdcolor3}{rgb}{.20784314,.15686275,.65882355}
+\definecolor{pdcolor4}{rgb}{.60,.60,.60}
+\definecolor{pdcolor5}{rgb}{.65,.71,.84}
+\definecolor{pdcolor6}{rgb}{.81,.78,.65}
+\definecolor{pdcolor7}{rgb}{.42,.35,.39}
+
+\definecolor{barbg}{rgb}{.89,.89,.89}
+\newrgbcolor{mh@col@logo@bg}{0.20784314 0.15686275 0.65882355}
+\newrgbcolor{mh@col@logo@fg}{1 1 1}
+\newrgbcolor{mh@col@logo@text}{.1 .1 .35}
+
+\pddefinepalettes{light}{%
+}{dark}{%
+  \definecolor{pdcolor1}{rgb}{.85,.85,.85}
+  \definecolor{pdcolor2}{rgb}{.02,.02,.02}
+  %\definecolor{pdcolor3}{rgb}{.65,.65,.98}
+	\definecolor{pdcolor3}{rgb}{.0156863,.6823529,.8862745}
+  \definecolor{pdcolor4}{rgb}{.94,.91,.87}
+  \definecolor{pdcolor5}{rgb}{.78,.52,.45}
+  \definecolor{pdcolor6}{rgb}{.45,.39,.26}
+  \definecolor{pdcolor7}{rgb}{.71,.71,.68}
+}
+\pddefinetemplate{titleslide}{
+  titlefont=\LARGE\color{pdcolor3}\centering,
+  clockcolor=pdcolor3,clockpos={.99\slidewidth,\slideheight},
+  texthook=t,
+  textpos={.5\slidewidth,.57\slideheight},
+  textwidth=.8\slidewidth,
+  textfont=\large\color{pdcolor1}\centering,
+  textheight=.5\slideheight
+}{%
+  \psframe[linestyle=none,linewidth=0pt,fillstyle=solid,%
+    fillcolor=pdcolor2](0,0)(\slidewidth,\slideheight)%
+  \rput[c](0.5\slidewidth,0.77\slideheight){\psscalebox{0.8}{\mhlogotext}}
+}
+\pddefinetemplate{slide}{
+  titlepos={.05\slidewidth,.85\slideheight},
+  titlewidth=.9\slidewidth,
+  titlefont=\bfseries\LARGE\color{pdcolor3}\centering,
+  clockcolor=pdcolor1,clockpos={.99\slidewidth,\slideheight},
+  textpos={.05\slidewidth,.77\slideheight},
+  textwidth=.9\slidewidth,
+  rfpos={.985\slidewidth,.015\slideheight},
+  rftemp=\pd@@rf,
+  lfpos={.015\slidewidth,.015\slideheight},
+  textheight=.63\slideheight
+}{%
+  \psframe[linestyle=none,linewidth=0pt,fillstyle=solid,%
+    fillcolor=pdcolor2](0,0.1\slideheight)(\slidewidth,\slideheight)%
+  \psframe[linestyle=none,linewidth=0pt,fillstyle=solid,%
+    fillcolor=barbg](0,0)(\slidewidth,0.1\slideheight)%
+  \psline[linestyle=solid,linewidth=1.5pt,linecolor=pdcolor3](0,0.1\slideheight)(\slidewidth,0.1\slideheight)%
+  \rput[l](0.01\slidewidth,0.05\slideheight){\psscalebox{0.225}{\mhlogo}}
+}
+\pddefinetemplate{textslide}{
+  titlepos={.05\slidewidth,.93\slideheight},
+  titlewidth=.9\slidewidth,
+  titlefont=\bfseries\color{pdcolor4}\raggedright,
+  clockcolor=pdcolor4,clockpos={.99\slidewidth,\slideheight},
+  textpos={.5\slidewidth,.5\slideheight},
+  textfont=\Large\centering,
+  texthook=c,
+  textwidth=.9\slidewidth,
+  rfpos={.985\slidewidth,.015\slideheight},
+  rftemp=\pd@@rf,
+  lfpos={.015\slidewidth,.015\slideheight},
+  textheight=.9\slideheight
+}{%
+}
+\pddefinetemplate[textslide]{emtextslide}{
+  titlefont=\bfseries\color{pdcolor3}\raggedright,
+  clockcolor=pdcolor3,
+  textfont=\centering\color{pdcolor4}
+}{%
+  \psframe[linestyle=none,linewidth=0pt,fillstyle=solid,fillcolor=black](0,0)(\slidewidth,\slideheight)%
+}
+\pddefinetemplate[textslide]{nctextslide}{textfont=\Large}{}
+\pddefinetemplate[slide]{wideslide}{}{}
+\pddefinetemplate[slide]{sectionslide}{
+  titlehook=c,titlefont=\Huge\color{pdcolor3}\bfseries\centering,
+  titlepos={.5\slidewidth,.5\slideheight},
+  titlewidth=.8\slidewidth
+}{}
+\setkeys[pd]{section}{
+  sectemp=sectionslide,widesectemp=sectionslide
+}
+\def\labelitemi{\color{pdcolor3}\ensuremath\bullet}
+\def\labelitemii{\color{pdcolor5}\ensuremath\bullet}
+\def\labelitemiii{\color{pdcolor6}\ensuremath\bullet}
+\def\labelitemiv{\color{pdcolor1}\ensuremath\bullet}
+\pdsetup{
+  list={labelsep=1em,leftmargin=*,itemsep=0pt,topsep=5pt,parsep=0pt},
+  dmaxheight=.85\slideheight
+}
+\def\familydefault{\sfdefault}
+\def\HUGE{\fontsize{35pt}{35pt}\selectfont}
+
+\def\mh@logo@circle{\pst@object{mh@logo@circle}}
+\def\mh@logo@circle@i{%
+  \begin@ClosedObj%
+	\pscustom{%
+		\newpath
+		\moveto(493.0815352,249.9999969)
+		\curveto(493.0815352,115.7497732)(384.2502258,6.9184638)(250.0000021,6.9184638)
+		\curveto(115.7497784,6.9184638)(6.918469,115.7497732)(6.918469,249.9999969)
+		\curveto(6.918469,384.2502206)(115.7497784,493.08153)(250.0000021,493.08153)
+		\curveto(384.2502258,493.08153)(493.0815352,384.2502206)(493.0815352,249.9999969)
+		\closepath
+	}%
+  \end@ClosedObj%
+  \ignorespaces%
+}
+
+\def\mh@logo@spiral{\pst@object{mh@logo@spiral}}
+\def\mh@logo@spiral@i{%
+  \begin@ClosedObj%
+	\pscustom{%
+		\newpath
+		\moveto(39.161175,371.72785)
+		\curveto(82.650348,447.0533)(163.02165,493.4557)(250.00959,493.4557)
+		\curveto(123.44993,486.80806)(18.874916,377.72413)(26.220353,249.52363)
+		\curveto(32.84364,133.92691)(132.79303,38.48778)(250.01948,45.87628)
+		\curveto(354.63333,52.46961)(440.93535,143.28286)(433.4954,249.52391)
+		\curveto(426.93933,343.14337)(345.26207,420.30924)(250.01922,412.80578)
+		\curveto(167.40688,406.29738)(99.372867,333.75326)(106.95665,249.52368)
+		\curveto(113.40246,177.93294)(176.82126,119.02055)(250.01946,126.70948)
+		\curveto(310.57216,133.07011)(360.38464,187.38075)(352.55143,249.52386)
+		\curveto(346.31248,299.01895)(301.07354,339.77694)(250.01931,331.73265)
+		\curveto(211.60622,325.68012)(179.80133,289.43018)(188.1851,249.52375)
+		\curveto(193.91917,222.22964)(221.40337,199.11577)(250.01939,208.13344)
+		\curveto(266.10324,213.20192)(281.38811,232.81689)(270.85848,249.5238)
+		\curveto(266.9128,255.78426)(250.01936,262.10851)(250.22105,249.66765)
+		\curveto(239.52402,256.10384)(253.44771,267.57184)(260.84227,267.85869)
+		\curveto(280.57567,268.62414)(289.92032,245.5796)(286.26782,229.11634)
+		\curveto(279.76936,199.82531)(246.01005,187.58022)(219.50562,196.26143)
+		\curveto(180.75374,208.95408)(165.26281,254.62288)(179.22771,290.91587)
+		\curveto(197.78825,339.15226)(255.70518,357.95132)(301.68868,338.60686)
+		\curveto(359.42283,314.31907)(381.55097,244.02488)(356.78309,188.40441)
+		\curveto(326.84285,121.1685)(244.11379,95.70241)(178.89146,125.91555)
+		\curveto(102.15459,161.46261)(73.346533,256.65383)(109.01627,331.45238)
+		\curveto(150.1395,417.6868)(257.80575,449.83844)(342.16064,408.70644)
+		\curveto(437.88809,362.02909)(473.38368,241.88276)(426.78681,147.98783)
+		\curveto(374.57204,42.77268)(241.94473,3.93348)(138.52336,55.99588)
+		\curveto(23.825717,113.73478)(-18.356261,258.84134)(39.171325,371.7773)
+		\closepath
+	}%
+  \end@ClosedObj%
+
+  \begin@ClosedObj%
+	\pscustom{%
+		\newpath
+		\moveto(473.77719,250.47639)
+		\curveto(467.15391,366.07313)(367.20452,461.51211)(249.97807,454.1238)
+		\curveto(145.36422,447.5304)(59.062202,356.71715)(66.502141,250.47611)
+		\curveto(73.058213,156.85665)(154.73548,79.6908)(249.97834,87.19426)
+		\curveto(332.59065,93.70266)(400.62468,166.24677)(393.04092,250.47634)
+		\curveto(386.59508,322.06709)(323.17628,380.9795)(249.97813,373.29054)
+		\curveto(189.42543,366.92991)(139.61293,312.61929)(147.44617,250.47618)
+		\curveto(153.68511,200.98108)(198.92406,160.22309)(249.97827,168.26738)
+		\curveto(288.39136,174.31992)(320.19625,210.56985)(311.8125,250.47628)
+		\curveto(306.07841,277.7704)(278.5942,300.88427)(249.97817,291.86658)
+		\curveto(233.89435,286.79812)(218.60949,267.18314)(229.1391,250.47624)
+		\curveto(233.08478,244.21578)(249.97823,237.89153)(250.20361,250.37349)
+		\curveto(239.53033,243.9784)(236.56059,261.77067)(240.00944,268.31796)
+		\curveto(249.21326,285.79031)(273.84275,282.36074)(286.2741,270.96596)
+		\curveto(308.39165,250.6926)(302.11655,215.33365)(281.34621,196.72074)
+		\curveto(250.97808,169.50696)(203.68227,178.92583)(179.23407,209.16629)
+		\curveto(146.74039,249.35836)(159.41838,308.91543)(199.16295,339.06607)
+		\curveto(249.06386,376.92139)(321.0045,360.93782)(356.78932,311.67798)
+		\curveto(400.04722,252.13101)(380.73697,167.75255)(321.96046,126.37493)
+		\curveto(252.80736,77.69242)(155.96529,100.33953)(109.02268,168.6297)
+		\curveto(54.903074,247.36066)(80.892059,356.67815)(158.69088,409.16562)
+		\curveto(246.97838,468.7293)(368.77598,439.39621)(426.79296,352.09468)
+		\curveto(491.80467,254.26779)(459.12673,119.98962)(362.32865,56.45529)
+		\curveto(254.97644,-14.00622)(108.21946,22.01638)(39.169489,128.28841)
+		\curveto(82.650349,52.94669)(163.02166,6.54428)(249.9892,6.54428)
+		\curveto(376.54762,13.19198)(481.12263,122.2759)(473.77719,250.47639)
+		\closepath
+	}%
+  \end@ClosedObj%
+
+  \begin@ClosedObj%
+	\pscustom{%
+		\newpath
+		\moveto(137.7251,443.57436)
+		\curveto(40.927012,380.04006)(8.2490734,245.76188)(73.260777,147.935)
+		\curveto(131.27776,60.63345)(253.07537,31.30038)(341.36286,90.86407)
+		\curveto(419.16168,143.35153)(445.15067,252.66902)(391.03106,331.39999)
+		\curveto(344.08846,399.69016)(247.24638,422.33727)(178.0933,373.65473)
+		\curveto(119.31676,332.27712)(100.00652,247.89864)(143.26442,188.35168)
+		\curveto(179.04925,139.09182)(250.9899,123.10828)(300.89082,160.9636)
+		\curveto(340.63537,191.11421)(353.31336,250.67129)(320.81966,290.86337)
+		\curveto(296.37149,321.10382)(249.07566,330.52269)(218.70754,303.30891)
+		\curveto(197.93718,284.69601)(191.6621,249.33706)(213.77966,229.0637)
+		\curveto(226.21099,217.66892)(250.84049,214.23935)(260.04429,231.71172)
+		\curveto(263.49316,238.259)(260.5234,256.05126)(249.60101,250.00547)
+		\curveto(260.47599,243.95969)(246.55232,232.49168)(239.15775,232.20485)
+		\curveto(219.42434,231.43938)(210.07968,254.48396)(213.73219,270.94719)
+		\curveto(220.23067,300.23822)(253.98997,312.48332)(280.4944,303.80212)
+		\curveto(319.24628,291.10944)(334.73721,245.44064)(320.7723,209.14768)
+		\curveto(302.21177,160.91129)(244.29482,142.1122)(198.31133,161.45668)
+		\curveto(140.5772,185.74445)(118.44904,256.03865)(143.21691,311.65913)
+		\curveto(173.15717,378.89505)(255.88623,404.36113)(321.10856,374.14798)
+		\curveto(397.84542,338.60094)(426.65348,243.40972)(390.98375,168.61116)
+		\curveto(349.86052,82.37674)(242.19428,50.22508)(157.83937,91.35711)
+		\curveto(62.111927,138.03446)(26.616328,258.18079)(73.213214,352.07571)
+		\curveto(125.42797,457.29093)(258.05528,496.1301)(361.47665,444.06767)
+		\curveto(476.1743,386.32875)(518.35626,241.22221)(460.83376,128.27919)
+		\curveto(504.328,203.59761)(504.328,296.4024)(460.85744,371.72642)
+		\curveto(391.8343,478.01331)(245.0773,514.03593)(137.7251,443.57436)
+		\closepath
+	}%
+  \end@ClosedObj%
+  \ignorespaces%
+}
+
+\def\mh@logo@h{\pst@object{mh@logo@h}}
+\def\mh@logo@h@i{%
+  \begin@ClosedObj%
+	\pscustom{%
+		\newpath
+		\moveto(250,73.01532)
+		\lineto(194.55609,128.45924)
+		\lineto(204.01495,137.91808)
+		\lineto(137.91383,204.02348)
+		\lineto(128.45497,194.56035)
+		\lineto(73.011058,250)
+		\lineto(156.12362,333.11682)
+		\lineto(211.57179,277.67717)
+		\lineto(193.51553,259.61664)
+		\lineto(204.85934,248.26858)
+		\lineto(251.73568,295.1492)
+		\lineto(240.39188,306.493)
+		\lineto(222.95398,289.0551)
+		\lineto(167.50581,344.49901)
+		\lineto(250,426.9932)
+		\lineto(305.44391,371.54929)
+		\lineto(295.98932,362.09043)
+		\lineto(362.08191,295.98931)
+		\lineto(371.54503,305.44817)
+		\lineto(426.99321,250)
+		\lineto(344.49901,167.51006)
+		\lineto(289.05084,222.95398)
+		\lineto(306.48874,240.39188)
+		\lineto(297.26444,249.61618)
+		\lineto(250.38808,202.73556)
+		\lineto(259.60812,193.51553)
+		\lineto(277.66438,211.57179)
+		\lineto(333.11683,156.11936)
+		\lineto(250,73.01532)
+		\closepath
+	}%
+  \end@ClosedObj%
+  \ignorespaces%
+}
+
+\def\mh@logo@text{\pst@object{mh@logo@text}}
+\def\mh@logo@text@i{%
+  \begin@ClosedObj%
+	\pscustom{%
+		\newpath
+		\moveto(550,387.50001)
+		\lineto(567.99738,387.50001)
+		\lineto(567.99738,256.47906)
+		\lineto(550,256.47906)
+		\lineto(550,387.50001)
+	}
+  \end@ClosedObj%
+
+  \begin@ClosedObj%
+	\pscustom
+	{
+		\newpath
+		\moveto(585.71356,275.19634)
+		\lineto(585.71356,331.34818)
+		\lineto(603.71094,331.34818)
+		\lineto(603.71094,275.19634)
+		\lineto(585.71356,275.19634)
+		\moveto(603.71094,256.47906)
+		\lineto(603.71094,275.19634)
+		\lineto(657.70309,275.19634)
+		\lineto(657.70309,256.47906)
+		\lineto(603.71094,256.47906)
+		\moveto(603.71094,331.34818)
+		\lineto(603.71094,350.06546)
+		\lineto(657.70309,350.06546)
+		\lineto(657.70309,331.34818)
+		\lineto(603.71094,331.34818)
+		\moveto(657.70309,275.19634)
+		\lineto(657.70309,331.34818)
+		\lineto(675.70047,331.34818)
+		\lineto(675.70047,275.19634)
+		\lineto(657.70309,275.19634)
+	}
+  \end@ClosedObj%
+
+  \begin@ClosedObj%
+	\pscustom
+	{
+		\newpath
+		\moveto(747.69001,331.34818)
+		\lineto(765.68739,331.34818)
+		\lineto(765.68739,256.47906)
+		\lineto(747.69001,256.47906)
+		\lineto(747.69001,331.34818)
+		\moveto(693.69786,350.06546)
+		\lineto(711.69524,350.06546)
+		\lineto(711.69524,256.47906)
+		\lineto(693.69786,256.47906)
+		\lineto(693.69786,350.06546)
+		\moveto(711.69524,350.06546)
+		\lineto(747.69001,350.06546)
+		\lineto(747.69001,331.34818)
+		\lineto(711.69524,331.34818)
+		\lineto(711.69524,350.06546)
+	}
+  \end@ClosedObj%
+
+  \begin@ClosedObj%
+	\pscustom
+	{
+		\newpath
+		\moveto(783.40356,331.34818)
+		\lineto(801.40095,331.34818)
+		\lineto(801.40095,275.19634)
+		\lineto(783.40356,275.19634)
+		\lineto(783.40356,331.34818)
+		\moveto(801.40095,331.34818)
+		\lineto(837.39571,331.34818)
+		\lineto(837.39571,350.06546)
+		\lineto(801.40095,350.06546)
+		\lineto(801.40095,331.34818)
+		\moveto(801.40095,256.47906)
+		\lineto(837.39571,256.47906)
+		\lineto(837.39571,275.19634)
+		\lineto(801.40095,275.19634)
+		\lineto(801.40095,256.47906)
+		\moveto(837.39571,387.50001)
+		\lineto(855.3931,387.50001)
+		\lineto(855.3931,256.47906)
+		\lineto(837.39571,256.47906)
+		\lineto(837.39571,387.50001)
+	}
+  \end@ClosedObj%
+
+  \begin@ClosedObj%
+	\pscustom
+	{
+		\newpath
+		\moveto(873.39047,275.19634)
+		\lineto(873.39047,331.34818)
+		\lineto(891.38786,331.34818)
+		\lineto(891.38786,275.19634)
+		\lineto(873.39047,275.19634)
+		\moveto(891.38786,256.47906)
+		\lineto(891.38786,275.19634)
+		\lineto(945.38,275.19634)
+		\lineto(945.38,256.47906)
+		\lineto(891.38786,256.47906)
+		\moveto(891.38786,331.34818)
+		\lineto(891.38786,350.06546)
+		\lineto(945.38,350.06546)
+		\lineto(945.38,331.34818)
+		\lineto(891.38786,331.34818)
+		\moveto(945.38,275.19634)
+		\lineto(945.38,331.34818)
+		\lineto(963.37739,331.34818)
+		\lineto(963.37739,275.19634)
+		\lineto(945.38,275.19634)
+	}
+  \end@ClosedObj%
+
+  \begin@ClosedObj%
+	\pscustom
+	{
+		\newpath
+		\moveto(1035.3669,331.34818)
+		\lineto(1053.3643,331.34818)
+		\lineto(1053.3643,256.47906)
+		\lineto(1035.3669,256.47906)
+		\lineto(1035.3669,331.34818)
+		\moveto(981.37479,350.06546)
+		\lineto(999.37217,350.06546)
+		\lineto(999.37217,256.47906)
+		\lineto(981.37479,256.47906)
+		\lineto(981.37479,350.06546)
+		\moveto(999.37217,350.06546)
+		\lineto(1035.3669,350.06546)
+		\lineto(1035.3669,331.34818)
+		\lineto(999.37217,331.34818)
+		\lineto(999.37217,350.06546)
+	}
+  \end@ClosedObj%
+
+  \begin@ClosedObj%
+	\pscustom
+	{
+		\newpath
+		\moveto(657.9843,187.36911)
+		\lineto(675.98168,187.36911)
+		\lineto(675.98168,112.5)
+		\lineto(657.9843,112.5)
+		\lineto(657.9843,187.36911)
+		\moveto(621.98953,206.08639)
+		\lineto(657.9843,206.08639)
+		\lineto(657.9843,187.36911)
+		\lineto(621.98953,187.36911)
+		\lineto(621.98953,206.08639)
+		\moveto(550,206.08639)
+		\lineto(567.99738,206.08639)
+		\lineto(567.99738,112.5)
+		\lineto(550,112.5)
+		\lineto(550,206.08639)
+		\moveto(603.99215,206.08639)
+		\lineto(621.98953,206.08639)
+		\lineto(621.98953,112.5)
+		\lineto(603.99215,112.5)
+		\lineto(603.99215,206.08639)
+		\moveto(567.99738,206.08639)
+		\lineto(603.99215,206.08639)
+		\lineto(603.99215,187.36911)
+		\lineto(567.99738,187.36911)
+		\lineto(567.99738,206.08639)
+	}
+  \end@ClosedObj%
+
+  \begin@ClosedObj%
+	\pscustom
+	{
+		\newpath
+		\moveto(693.97906,206.08639)
+		\lineto(711.97645,206.08639)
+		\lineto(711.97645,112.5)
+		\lineto(693.97906,112.5)
+		\lineto(693.97906,206.08639)
+		\moveto(693.97906,239.20158)
+		\lineto(711.97645,239.20158)
+		\lineto(711.97645,220.4843)
+		\lineto(693.97906,220.4843)
+		\lineto(693.97906,239.20158)
+	}
+  \end@ClosedObj%
+
+  \begin@ClosedObj%
+	\pscustom
+	{
+		\newpath
+		\moveto(783.68478,187.36911)
+		\lineto(801.68216,187.36911)
+		\lineto(801.68216,112.5)
+		\lineto(783.68478,112.5)
+		\lineto(783.68478,187.36911)
+		\moveto(729.69263,206.08639)
+		\lineto(747.69001,206.08639)
+		\lineto(747.69001,112.5)
+		\lineto(729.69263,112.5)
+		\lineto(729.69263,206.08639)
+		\moveto(747.69001,206.08639)
+		\lineto(783.68478,206.08639)
+		\lineto(783.68478,187.36911)
+		\lineto(747.69001,187.36911)
+		\lineto(747.69001,206.08639)
+	}
+  \end@ClosedObj%
+
+  \begin@ClosedObj%
+	\pscustom
+	{
+		\newpath
+		\moveto(819.39832,187.36911)
+		\lineto(837.3957,187.36911)
+		\lineto(837.3957,131.21728)
+		\lineto(819.39832,131.21728)
+		\lineto(819.39832,187.36911)
+		\moveto(837.3957,187.36911)
+		\lineto(873.39046,187.36911)
+		\lineto(873.39046,206.08639)
+		\lineto(837.3957,206.08639)
+		\lineto(837.3957,187.36911)
+		\moveto(837.3957,112.5)
+		\lineto(873.39046,112.5)
+		\lineto(873.39046,131.21728)
+		\lineto(837.3957,131.21728)
+		\lineto(837.3957,112.5)
+		\moveto(873.39046,243.52095)
+		\lineto(891.38785,243.52095)
+		\lineto(891.38785,112.5)
+		\lineto(873.39046,112.5)
+		\lineto(873.39046,243.52095)
+	}
+  \end@ClosedObj%
+
+  \begin@ClosedObj%
+	\pscustom
+	{
+		\newpath
+		\moveto(909.38525,243.52095)
+		\lineto(927.38264,243.52095)
+		\lineto(927.38264,112.5)
+		\lineto(909.38525,112.5)
+		\lineto(909.38525,243.52095)
+		\moveto(963.3774,187.36911)
+		\lineto(981.37479,187.36911)
+		\lineto(981.37479,112.5)
+		\lineto(963.3774,112.5)
+		\lineto(963.3774,187.36911)
+		\moveto(927.38264,187.36911)
+		\lineto(945.38002,187.36911)
+		\lineto(945.38002,168.65184)
+		\lineto(927.38264,168.65184)
+		\lineto(927.38264,187.36911)
+		\moveto(945.38002,206.08639)
+		\lineto(963.3774,206.08639)
+		\lineto(963.3774,187.36911)
+		\lineto(945.38002,187.36911)
+		\lineto(945.38002,206.08639)
+	}
+  \end@ClosedObj%
+
+  \begin@ClosedObj%
+	\pscustom
+	{
+		\newpath
+		\moveto(1017.0883,131.21728)
+		\lineto(1017.0883,112.5)
+		\lineto(1053.0831,112.5)
+		\lineto(1053.0831,131.21728)
+		\lineto(1017.0883,131.21728)
+		\moveto(999.09094,131.21728)
+		\lineto(1017.0883,131.21728)
+		\lineto(1017.0883,149.93456)
+		\lineto(999.09094,149.93456)
+		\lineto(999.09094,131.21728)
+		\moveto(1017.0883,168.65184)
+		\lineto(1017.0883,149.93456)
+		\lineto(1053.0831,149.93456)
+		\lineto(1053.0831,168.65184)
+		\lineto(1017.0883,168.65184)
+		\moveto(1053.0831,112.5)
+		\lineto(1053.0831,187.36911)
+		\lineto(1071.0805,187.36911)
+		\lineto(1071.0805,112.5)
+		\lineto(1053.0831,112.5)
+		\moveto(1053.0831,187.36911)
+		\lineto(1053.0831,206.08639)
+		\lineto(1017.0883,206.08639)
+		\lineto(1017.0883,187.36911)
+		\lineto(1053.0831,187.36911)
+	}
+  \end@ClosedObj%
+
+  \begin@ClosedObj%
+	\pscustom
+	{
+		\newpath
+		\moveto(1088.7966,131.21728)
+		\lineto(1088.7966,187.36911)
+		\lineto(1106.794,187.36911)
+		\lineto(1106.794,131.21728)
+		\lineto(1088.7966,131.21728)
+		\moveto(1106.794,112.5)
+		\lineto(1106.794,131.21728)
+		\lineto(1142.7888,131.21728)
+		\lineto(1142.7888,112.5)
+		\lineto(1106.794,112.5)
+		\moveto(1106.794,187.36911)
+		\lineto(1106.794,206.08639)
+		\lineto(1142.7888,206.08639)
+		\lineto(1142.7888,187.36911)
+		\lineto(1106.794,187.36911)
+		\moveto(1142.7888,131.21728)
+		\lineto(1142.7888,149.93456)
+		\lineto(1160.7862,149.93456)
+		\lineto(1160.7862,131.21728)
+		\lineto(1142.7888,131.21728)
+		\moveto(1142.7888,168.65184)
+		\lineto(1142.7888,187.36911)
+		\lineto(1160.7862,187.36911)
+		\lineto(1160.7862,168.65184)
+		\lineto(1142.7888,168.65184)
+	}
+  \end@ClosedObj%
+
+  \begin@ClosedObj%
+	\pscustom
+	{
+		\newpath
+		\moveto(1179.0648,243.52095)
+		\lineto(1197.0621,243.52095)
+		\lineto(1197.0621,112.5)
+		\lineto(1179.0648,112.5)
+		\lineto(1179.0648,243.52095)
+		\moveto(1215.0595,187.36911)
+		\lineto(1233.0569,187.36911)
+		\lineto(1233.0569,131.21728)
+		\lineto(1215.0595,131.21728)
+		\lineto(1215.0595,187.36911)
+		\moveto(1197.0621,168.65184)
+		\lineto(1215.0595,168.65184)
+		\lineto(1215.0595,149.93456)
+		\lineto(1197.0621,149.93456)
+		\lineto(1197.0621,168.65184)
+		\moveto(1233.0569,206.08639)
+		\lineto(1251.0543,206.08639)
+		\lineto(1251.0543,187.36911)
+		\lineto(1233.0569,187.36911)
+		\lineto(1233.0569,206.08639)
+		\moveto(1233.0569,131.21728)
+		\lineto(1251.0543,131.21728)
+		\lineto(1251.0543,112.5)
+		\lineto(1233.0569,112.5)
+		\lineto(1233.0569,131.21728)
+	}
+  \end@ClosedObj%
+
+  \begin@ClosedObj%
+	\pscustom
+	{
+		\newpath
+		\moveto(1268.7705,131.21728)
+		\lineto(1268.7705,187.36911)
+		\lineto(1286.7679,187.36911)
+		\lineto(1286.7679,131.21728)
+		\lineto(1268.7705,131.21728)
+		\moveto(1286.7679,112.5)
+		\lineto(1286.7679,131.21728)
+		\lineto(1322.7627,131.21728)
+		\lineto(1322.7627,112.5)
+		\lineto(1286.7679,112.5)
+		\moveto(1286.7679,187.36911)
+		\lineto(1286.7679,206.08639)
+		\lineto(1322.7627,206.08639)
+		\lineto(1322.7627,187.36911)
+		\lineto(1286.7679,187.36911)
+		\moveto(1286.7679,149.93456)
+		\lineto(1286.7679,168.65184)
+		\lineto(1322.7627,168.65184)
+		\lineto(1322.7627,149.93456)
+		\lineto(1286.7679,149.93456)
+		\moveto(1322.7627,168.65184)
+		\lineto(1322.7627,187.36911)
+		\lineto(1340.76,187.36911)
+		\lineto(1340.76,168.65184)
+		\lineto(1322.7627,168.65184)
+	}
+  \end@ClosedObj%
+
+  \begin@ClosedObj%
+	\pscustom
+	{
+		\newpath
+		\moveto(1358.4762,206.08639)
+		\lineto(1376.4736,206.08639)
+		\lineto(1376.4736,112.5)
+		\lineto(1358.4762,112.5)
+		\lineto(1358.4762,206.08639)
+		\moveto(1376.4736,206.08639)
+		\lineto(1394.471,206.08639)
+		\lineto(1394.471,187.36911)
+		\lineto(1376.4736,187.36911)
+		\lineto(1376.4736,206.08639)
+	}
+  \end@ClosedObj%
+
+  \begin@ClosedObj%
+	\pscustom
+	{
+		\newpath
+		\moveto(1466.4605,131.21728)
+		\lineto(1466.4605,149.93456)
+		\lineto(1484.4579,149.93456)
+		\lineto(1484.4579,131.21728)
+		\lineto(1466.4605,131.21728)
+		\moveto(1412.4683,112.5)
+		\lineto(1412.4683,131.21728)
+		\lineto(1466.4605,131.21728)
+		\lineto(1466.4605,112.5)
+		\lineto(1412.4683,112.5)
+		\moveto(1430.4657,149.93456)
+		\lineto(1430.4657,168.65184)
+		\lineto(1466.4605,168.65184)
+		\lineto(1466.4605,149.93456)
+		\lineto(1430.4657,149.93456)
+		\moveto(1412.4683,168.65184)
+		\lineto(1412.4683,187.36911)
+		\lineto(1430.4657,187.36911)
+		\lineto(1430.4657,168.65184)
+		\lineto(1412.4683,168.65184)
+		\moveto(1430.4657,187.36911)
+		\lineto(1430.4657,206.08639)
+		\lineto(1484.4579,206.08639)
+		\lineto(1484.4579,187.36911)
+		\lineto(1430.4657,187.36911)
+	}
+  \end@ClosedObj%
+  \ignorespaces%
+}
+
+
+\def\mhlogo{
+	\psset{unit=.2pt}%
+	\begin{pspicture}(500,500)
+    \mh@logo@circle[linestyle=solid,linecolor=mh@col@logo@bg,linewidth=4,fillstyle=solid,fillcolor=mh@col@logo@bg]
+    \mh@logo@spiral[linestyle=none,fillstyle=solid,fillcolor=mh@col@logo@fg]
+    \mh@logo@h[linestyle=solid,linecolor=mh@col@logo@bg,linewidth=8,fillstyle=solid,fillcolor=mh@col@logo@fg]
+	\end{pspicture}%
+}
+\def\mhlogotext{
+	\psset{unit=.2pt}%
+	\begin{pspicture}(1500,500)
+    \mh@logo@circle[linestyle=solid,linecolor=mh@col@logo@bg,linewidth=4,fillstyle=solid,fillcolor=mh@col@logo@bg]
+    \mh@logo@spiral[linestyle=none,fillstyle=solid,fillcolor=mh@col@logo@fg]
+    \mh@logo@h[linestyle=solid,linecolor=mh@col@logo@bg,linewidth=8,fillstyle=solid,fillcolor=mh@col@logo@fg]
+		\rput[bl](25,0){\mh@logo@text[linestyle=none,fillstyle=solid,fillcolor=mh@col@logo@text]}
+	\end{pspicture}%
+}
+
+\endinput
